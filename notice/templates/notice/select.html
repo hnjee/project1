@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+    <div class="container">
+
+        <h1>{{board}}</h1>
+        <table class="table table-hover">
+            <tr>
+                <td>Num</td>
+                <td>Title</td>
+                <td>Writer</td>
+                <td>contents</td>
+                <td>Date</td>
+                <td>Hit</td>
+            </tr>
+        
+            <tr>
+                <td>{{vo.num}}</td>
+                <td>{{vo.title}}</td>
+                <td>{{vo.writer}}</td>
+                <td>{{vo.contents}}</td>
+                <td>{{vo.createDate}}</td>
+                <td>{{vo.hit}}</td>    
+            </tr>
+        </table>
+
+        <div>
+            <a href="{% url 'notice:delete' vo.num %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'notice:update' num=vo.num %}" class="btn btn-primary">Update</a>
+        </div>
+
+    </div>
+
+{% endblock contents %}
